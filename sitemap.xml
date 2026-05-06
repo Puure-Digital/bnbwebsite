@@ -4,48 +4,49 @@
   <!-- Homepage -->
   <url>
     <loc>https://beamsandbraces.co.uk/</loc>
-    <lastmod>2026-04-21</lastmod>
+    <lastmod>2026-04-27</lastmod>
+    <priority>1.0</priority>
   </url>
 
   <!-- Core service pages -->
-  <url><loc>https://beamsandbraces.co.uk/composite-decking-norwich.html</loc><lastmod>2026-04-21</lastmod></url>
-  <url><loc>https://beamsandbraces.co.uk/fencing-norwich.html</loc><lastmod>2026-04-21</lastmod></url>
-  <url><loc>https://beamsandbraces.co.uk/garden-pergolas-norfolk.html</loc><lastmod>2026-04-21</lastmod></url>
-  <url><loc>https://beamsandbraces.co.uk/garden-rooms.html</loc><lastmod>2026-04-21</lastmod></url>
-  <url><loc>https://beamsandbraces.co.uk/insulated-garden-rooms.html</loc><lastmod>2026-04-21</lastmod></url>
-  <url><loc>https://beamsandbraces.co.uk/garden-gyms-norfolk.html</loc><lastmod>2026-04-21</lastmod></url>
-  <url><loc>https://beamsandbraces.co.uk/garden-bar-installation.html</loc><lastmod>2026-04-21</lastmod></url>
+  <url><loc>https://beamsandbraces.co.uk/composite-decking-norwich/</loc><lastmod>2026-04-27</lastmod><priority>0.9</priority></url>
+  <url><loc>https://beamsandbraces.co.uk/fencing-norwich/</loc><lastmod>2026-04-27</lastmod><priority>0.8</priority></url>
+  <url><loc>https://beamsandbraces.co.uk/garden-pergolas-norfolk/</loc><lastmod>2026-04-27</lastmod><priority>0.8</priority></url>
+  <url><loc>https://beamsandbraces.co.uk/garden-rooms/</loc><lastmod>2026-04-27</lastmod><priority>0.8</priority></url>
+  <url><loc>https://beamsandbraces.co.uk/insulated-garden-rooms/</loc><lastmod>2026-04-27</lastmod><priority>0.8</priority></url>
+  <url><loc>https://beamsandbraces.co.uk/garden-gyms-norfolk/</loc><lastmod>2026-04-27</lastmod><priority>0.8</priority></url>
+  <url><loc>https://beamsandbraces.co.uk/garden-bar-installation/</loc><lastmod>2026-04-27</lastmod><priority>0.8</priority></url>
 
   <!-- Trex product pages -->
-  <url><loc>https://beamsandbraces.co.uk/trex-products.html</loc><lastmod>2026-04-21</lastmod></url>
-  <url><loc>https://beamsandbraces.co.uk/trex-transcend.html</loc><lastmod>2026-04-21</lastmod></url>
-  <url><loc>https://beamsandbraces.co.uk/trex-signature.html</loc><lastmod>2026-04-21</lastmod></url>
-  <url><loc>https://beamsandbraces.co.uk/trex-enhance-naturals.html</loc><lastmod>2026-04-21</lastmod></url>
+  <url><loc>https://beamsandbraces.co.uk/trex-products/</loc><lastmod>2026-04-27</lastmod><priority>0.8</priority></url>
+  <url><loc>https://beamsandbraces.co.uk/trex-transcend/</loc><lastmod>2026-04-27</lastmod><priority>0.7</priority></url>
+  <url><loc>https://beamsandbraces.co.uk/trex-signature/</loc><lastmod>2026-04-27</lastmod><priority>0.7</priority></url>
+  <url><loc>https://beamsandbraces.co.uk/trex-enhance-naturals/</loc><lastmod>2026-04-27</lastmod><priority>0.7</priority></url>
 
   <!-- Location pages -->
-  <url><loc>https://beamsandbraces.co.uk/composite-decking-burnham-market.html</loc><lastmod>2026-04-17</lastmod></url>
-  <url><loc>https://beamsandbraces.co.uk/composite-decking-cromer-norfolk.html</loc><lastmod>2026-04-17</lastmod></url>
-  <url><loc>https://beamsandbraces.co.uk/composite-decking-eaton-norwich.html</loc><lastmod>2026-04-17</lastmod></url>
-  <url><loc>https://beamsandbraces.co.uk/composite-decking-holt-norfolk.html</loc><lastmod>2026-04-17</lastmod></url>
-  <url><loc>https://beamsandbraces.co.uk/composite-decking-horning-norfolk.html</loc><lastmod>2026-04-17</lastmod></url>
-  <url><loc>https://beamsandbraces.co.uk/composite-decking-hoveton-norfolk.html</loc><lastmod>2026-04-17</lastmod></url>
-  <url><loc>https://beamsandbraces.co.uk/composite-decking-southwold.html</loc><lastmod>2026-04-17</lastmod></url>
-  <url><loc>https://beamsandbraces.co.uk/composite-decking-weybourne-norfolk.html</loc><lastmod>2026-04-17</lastmod></url>
-  <url><loc>https://beamsandbraces.co.uk/composite-decking-wroxham.html</loc><lastmod>2026-04-17</lastmod></url>
+  <url><loc>https://beamsandbraces.co.uk/composite-decking-burnham-market/</loc><lastmod>2026-04-27</lastmod><priority>0.7</priority></url>
+  <url><loc>https://beamsandbraces.co.uk/composite-decking-cromer-norfolk/</loc><lastmod>2026-04-27</lastmod><priority>0.7</priority></url>
+  <url><loc>https://beamsandbraces.co.uk/composite-decking-eaton-norwich/</loc><lastmod>2026-04-27</lastmod><priority>0.7</priority></url>
+  <url><loc>https://beamsandbraces.co.uk/composite-decking-holt-norfolk/</loc><lastmod>2026-04-27</lastmod><priority>0.7</priority></url>
+  <url><loc>https://beamsandbraces.co.uk/composite-decking-horning-norfolk/</loc><lastmod>2026-04-27</lastmod><priority>0.7</priority></url>
+  <url><loc>https://beamsandbraces.co.uk/composite-decking-hoveton-norfolk/</loc><lastmod>2026-04-27</lastmod><priority>0.7</priority></url>
+  <url><loc>https://beamsandbraces.co.uk/composite-decking-southwold/</loc><lastmod>2026-04-27</lastmod><priority>0.7</priority></url>
+  <url><loc>https://beamsandbraces.co.uk/composite-decking-weybourne-norfolk/</loc><lastmod>2026-04-27</lastmod><priority>0.7</priority></url>
+  <url><loc>https://beamsandbraces.co.uk/composite-decking-wroxham/</loc><lastmod>2026-04-27</lastmod><priority>0.7</priority></url>
 
   <!-- Support pages -->
-  <url><loc>https://beamsandbraces.co.uk/areas-we-cover.html</loc><lastmod>2026-04-21</lastmod></url>
-  <url><loc>https://beamsandbraces.co.uk/testimonials.html</loc><lastmod>2026-04-21</lastmod></url>
-  <url><loc>https://beamsandbraces.co.uk/gallery.html</loc><lastmod>2026-04-21</lastmod></url>
-  <url><loc>https://beamsandbraces.co.uk/faqs.html</loc><lastmod>2026-04-21</lastmod></url>
-  <url><loc>https://beamsandbraces.co.uk/blog.html</loc><lastmod>2026-04-21</lastmod></url>
-  <url><loc>https://beamsandbraces.co.uk/contact.html</loc><lastmod>2026-04-21</lastmod></url>
+  <url><loc>https://beamsandbraces.co.uk/areas-we-cover/</loc><lastmod>2026-04-27</lastmod><priority>0.6</priority></url>
+  <url><loc>https://beamsandbraces.co.uk/testimonials/</loc><lastmod>2026-04-27</lastmod><priority>0.6</priority></url>
+  <url><loc>https://beamsandbraces.co.uk/gallery/</loc><lastmod>2026-04-27</lastmod><priority>0.6</priority></url>
+  <url><loc>https://beamsandbraces.co.uk/faqs/</loc><lastmod>2026-04-27</lastmod><priority>0.6</priority></url>
+  <url><loc>https://beamsandbraces.co.uk/blog/</loc><lastmod>2026-04-27</lastmod><priority>0.6</priority></url>
+  <url><loc>https://beamsandbraces.co.uk/contact/</loc><lastmod>2026-04-27</lastmod><priority>0.7</priority></url>
 
   <!-- Blog posts -->
-  <url><loc>https://beamsandbraces.co.uk/blog/wheelchair-accessible-garden-room.html</loc><lastmod>2026-04-17</lastmod></url>
-  <url><loc>https://beamsandbraces.co.uk/blog/january-is-for-planning.html</loc><lastmod>2026-01-22</lastmod></url>
-  <url><loc>https://beamsandbraces.co.uk/blog/winter-garden-upgrades.html</loc><lastmod>2025-12-22</lastmod></url>
-  <url><loc>https://beamsandbraces.co.uk/blog/trex-decking-jjh-collaboration.html</loc><lastmod>2025-11-03</lastmod></url>
-  <url><loc>https://beamsandbraces.co.uk/blog/composite-vs-timber-decking.html</loc><lastmod>2026-04-17</lastmod></url>
+  <url><loc>https://beamsandbraces.co.uk/blog/wheelchair-accessible-garden-room/</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <url><loc>https://beamsandbraces.co.uk/blog/january-is-for-planning/</loc><lastmod>2026-01-22</lastmod><priority>0.5</priority></url>
+  <url><loc>https://beamsandbraces.co.uk/blog/winter-garden-upgrades/</loc><lastmod>2025-12-22</lastmod><priority>0.5</priority></url>
+  <url><loc>https://beamsandbraces.co.uk/blog/trex-decking-jjh-collaboration/</loc><lastmod>2025-11-03</lastmod><priority>0.5</priority></url>
+  <url><loc>https://beamsandbraces.co.uk/blog/composite-vs-timber-decking/</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
 
 </urlset>
