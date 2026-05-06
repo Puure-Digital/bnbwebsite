@@ -583,12 +583,7 @@
         console.error('Webhook error:', err);
       }
 
-      document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
-      document.getElementById('success-panel').classList.add('active');
-      for (let i = 1; i <= 2; i++) {
-        document.getElementById('seg-' + i).classList.add('active');
-        document.getElementById('label-' + i).classList.add('active');
-      }
+      window.location.href = '/thank-you/';
     }
 
     document.querySelectorAll('.field-group input').forEach(input => {
