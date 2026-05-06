@@ -46,7 +46,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
   <style>
     .contact-page { padding: calc(var(--nav-height) + var(--space-16)) 0 var(--space-24); hyphens: none; -webkit-hyphens: none; }
@@ -96,7 +96,82 @@
     @media (max-width: 640px) {
       .form-row { grid-template-columns: 1fr; }
       .trust-row { flex-direction: column; gap: var(--space-5); }
-      .contact-form-wrap { padding: var(--space-6); }
+    }
+
+    /* ── Embedded multi-step quote form ── */
+    .contact-form-wrap { background: none; border: none; padding: 0; }
+
+    .quote-form-embed {
+      --qf-bg: #f5f2ed;
+      --qf-card-bg: #ffffff;
+      --qf-card-border: #e0dbd3;
+      --qf-accent: #c9a96e;
+      --qf-accent-hover: #b8953d;
+      --qf-accent-dim: rgba(201,169,110,0.1);
+      --qf-text: #1a1714;
+      --qf-text-mid: #5c554a;
+      --qf-text-dim: #9b9385;
+      --qf-success: #3a9e4a;
+      --qf-error: #d96b6b;
+      --qf-radius: 12px;
+      --qf-radius-sm: 8px;
+    }
+    .quote-form-embed .step-labels { display: flex; justify-content: space-between; margin-bottom: 6px; }
+    .quote-form-embed .step-labels span { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--qf-text-dim); transition: color 0.3s; font-family: 'DM Sans', sans-serif; }
+    .quote-form-embed .step-labels span.active { color: var(--qf-accent); }
+    .quote-form-embed .progress-bar { display: flex; gap: 6px; margin-bottom: 28px; }
+    .quote-form-embed .progress-bar .seg { flex: 1; height: 4px; border-radius: 2px; background: var(--qf-card-border); transition: background 0.4s ease; }
+    .quote-form-embed .progress-bar .seg.active { background: var(--qf-accent); }
+    .quote-form-embed .form-card { background: var(--qf-card-bg); border: 1px solid var(--qf-card-border); border-radius: var(--qf-radius); padding: 40px 36px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); font-family: 'DM Sans', sans-serif; }
+    .quote-form-embed .step-counter { font-size: 12px; color: var(--qf-text-dim); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; font-family: 'DM Sans', sans-serif; }
+    .quote-form-embed .step-question { font-family: 'DM Serif Display', serif; font-size: 24px; font-weight: 400; margin-bottom: 28px; color: var(--qf-text); }
+    .quote-form-embed .step-panel { display: none; animation: qf-fadeUp 0.35s ease both; }
+    .quote-form-embed .step-panel.active { display: block; }
+    @keyframes qf-fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    .quote-form-embed .service-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 10px; border-radius: var(--qf-radius-sm); }
+    .quote-form-embed .service-option { background: transparent; border: 1.5px solid var(--qf-card-border); border-radius: var(--qf-radius-sm); padding: 26px 16px; text-align: center; cursor: pointer; transition: all 0.2s ease; color: var(--qf-text-mid); font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .quote-form-embed .service-option svg { width: 36px; height: 36px; stroke: var(--qf-text-dim); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; transition: all 0.2s; }
+    .quote-form-embed .service-option:hover { border-color: var(--qf-accent); color: var(--qf-text); background: var(--qf-accent-dim); }
+    .quote-form-embed .service-option:hover svg { stroke: var(--qf-accent); transform: scale(1.08); }
+    .quote-form-embed .service-option.selected { border-color: var(--qf-accent); background: var(--qf-accent-dim); color: var(--qf-text); }
+    .quote-form-embed .service-option.selected svg { stroke: var(--qf-accent); }
+    .quote-form-embed .field-group { margin-bottom: 18px; }
+    .quote-form-embed .field-group label { display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--qf-text-mid); margin-bottom: 6px; font-family: 'DM Sans', sans-serif; }
+    .quote-form-embed .field-group label .req { color: var(--qf-accent); margin-left: 2px; }
+    .quote-form-embed .field-group input { width: 100%; background: transparent; border: 1.5px solid var(--qf-card-border); border-radius: var(--qf-radius-sm); padding: 14px 16px; color: var(--qf-text); font-family: 'DM Sans', sans-serif; font-size: 15px; transition: border-color 0.2s; box-shadow: none; }
+    .quote-form-embed .field-group input::placeholder { color: var(--qf-text-dim); }
+    .quote-form-embed .field-group input:focus { outline: none; border-color: var(--qf-accent); box-shadow: none; }
+    .quote-form-embed .field-group input.error { border-color: var(--qf-error); }
+    .quote-form-embed .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .quote-form-embed .btn-row { display: flex; gap: 10px; margin-top: 28px; }
+    .quote-form-embed .btn-next,
+    .quote-form-embed .btn-back,
+    .quote-form-embed .btn-submit { border: none; border-radius: var(--qf-radius-sm); padding: 16px 28px; font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.2s ease; letter-spacing: 0.02em; }
+    .quote-form-embed .btn-next,
+    .quote-form-embed .btn-submit { flex: 1; background: var(--qf-accent); color: #f5f2ed; }
+    .quote-form-embed .btn-next:hover,
+    .quote-form-embed .btn-submit:hover { background: var(--qf-accent-hover); transform: translateY(-1px); }
+    .quote-form-embed .btn-back { background: transparent; border: 1.5px solid var(--qf-card-border); color: var(--qf-text-mid); }
+    .quote-form-embed .btn-back:hover { border-color: var(--qf-text-mid); color: var(--qf-text); }
+    .quote-form-embed .security-note { text-align: center; margin-top: 16px; font-size: 12px; color: var(--qf-text-dim); display: flex; align-items: center; justify-content: center; gap: 5px; font-family: 'DM Sans', sans-serif; }
+    .quote-form-embed .security-note svg { width: 12px; height: 12px; fill: var(--qf-text-dim); }
+    .quote-form-embed .success-panel { display: none; text-align: center; padding: 20px 0; animation: qf-fadeUp 0.4s ease both; }
+    .quote-form-embed .success-panel.active { display: block; }
+    .quote-form-embed .success-icon { width: 56px; height: 56px; border-radius: 50%; background: rgba(58,158,74,0.12); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+    .quote-form-embed .success-icon svg { width: 28px; height: 28px; stroke: var(--qf-success); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .quote-form-embed .success-panel h2 { font-family: 'DM Serif Display', serif; font-size: 22px; font-weight: 400; margin-bottom: 8px; color: var(--qf-text); }
+    .quote-form-embed .success-panel p { color: var(--qf-text-mid); font-size: 14px; line-height: 1.6; font-family: 'DM Sans', sans-serif; }
+    @media (max-width: 480px) {
+      .quote-form-embed .form-card { padding: 28px 20px; }
+      .quote-form-embed .step-question { font-size: 20px; margin-bottom: 22px; }
+      .quote-form-embed .service-grid { gap: 8px; }
+      .quote-form-embed .service-option { padding: 20px 10px; font-size: 13px; gap: 8px; }
+      .quote-form-embed .service-option svg { width: 28px; height: 28px; }
+      .quote-form-embed .field-row { grid-template-columns: 1fr; }
+      .quote-form-embed .btn-row { margin-top: 24px; }
+      .quote-form-embed .btn-next,
+      .quote-form-embed .btn-back,
+      .quote-form-embed .btn-submit { padding: 14px 20px; font-size: 15px; }
     }
   </style>
 </head>
@@ -239,23 +314,104 @@
 
         <!-- FORM -->
         <div class="contact-form-wrap">
-          <iframe
-            src="https://api.leadconnectorhq.com/widget/form/ghxUTqvs8WerWFjglRKW"
-            style="width:100%;min-height:628px;border:none;border-radius:10px;display:block"
-            id="inline-ghxUTqvs8WerWFjglRKW"
-            data-layout="{'id':'INLINE'}"
-            data-trigger-type="alwaysShow"
-            data-trigger-value=""
-            data-activation-type="alwaysActivated"
-            data-activation-value=""
-            data-deactivation-type="neverDeactivate"
-            data-deactivation-value=""
-            data-form-name="Request a Quote - Beams and Braces"
-            data-height="628"
-            data-layout-iframe-id="inline-ghxUTqvs8WerWFjglRKW"
-            data-form-id="ghxUTqvs8WerWFjglRKW"
-            title="Request a Quote - Beams and Braces"
-          ></iframe>
+          <div class="quote-form-embed">
+
+            <div class="step-labels">
+              <span class="active" id="label-1">Service</span>
+              <span id="label-2">Your Details</span>
+            </div>
+
+            <div class="progress-bar">
+              <div class="seg active" id="seg-1"></div>
+              <div class="seg" id="seg-2"></div>
+            </div>
+
+            <div class="form-card">
+
+              <!-- STEP 1 -->
+              <div class="step-panel active" id="step-1">
+                <div class="step-counter">Step 1 of 2</div>
+                <div class="step-question">What Are You Interested In?</div>
+                <div class="service-grid" id="serviceGrid">
+                  <button class="service-option" data-service="Trex Decking" onclick="selectService(this)">
+                    <svg viewBox="0 0 32 32"><path d="M3 17h26"/><path d="M3 21h26"/><path d="M3 25h26"/><path d="M7 13v4"/><path d="M25 13v4"/><path d="M7 13h18"/><path d="M3 29h26"/></svg>
+                    Trex Decking
+                  </button>
+                  <button class="service-option" data-service="Composite Decking" onclick="selectService(this)">
+                    <svg viewBox="0 0 32 32"><path d="M4 18h24M4 22h24M4 26h24"/><path d="M8 14l8-6 8 6"/><circle cx="16" cy="5" r="1.5"/></svg>
+                    Composite Decking
+                  </button>
+                  <button class="service-option" data-service="Garden Room" onclick="selectService(this)">
+                    <svg viewBox="0 0 32 32"><rect x="5" y="14" width="22" height="13" rx="1"/><path d="M3 14l13-8 13 8"/><rect x="13" y="20" width="6" height="7"/><rect x="7" y="17" width="4" height="4" rx="0.5"/><rect x="21" y="17" width="4" height="4" rx="0.5"/></svg>
+                    Garden Room
+                  </button>
+                  <button class="service-option" data-service="Fencing" onclick="selectService(this)">
+                    <svg viewBox="0 0 32 32"><path d="M6 8v20M16 6v22M26 8v20"/><path d="M6 14h20M6 22h20"/><path d="M4 8l2-4 2 4M14 6l2-4 2 4M24 8l2-4 2 4"/></svg>
+                    Fencing
+                  </button>
+                  <button class="service-option" data-service="Pergola" onclick="selectService(this)">
+                    <svg viewBox="0 0 32 32"><path d="M6 12v16M26 12v16"/><path d="M3 12h26"/><path d="M3 9h26"/><path d="M11 9v3M16 9v3M21 9v3"/></svg>
+                    Pergola
+                  </button>
+                  <button class="service-option" data-service="Not Sure Yet" onclick="selectService(this)">
+                    <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="12"/><path d="M12 13a4.5 4.5 0 0 1 8 2c0 2.5-3.5 3-3.5 5"/><circle cx="16.5" cy="24" r="1.2" fill="currentColor" stroke="none"/></svg>
+                    Not Sure Yet
+                  </button>
+                </div>
+                <div class="btn-row">
+                  <button class="btn-next" onclick="goToStep(2)">Next →</button>
+                </div>
+              </div>
+
+              <!-- STEP 2 -->
+              <div class="step-panel" id="step-2">
+                <div class="step-counter">Step 2 of 2</div>
+                <div class="step-question">Your Details</div>
+                <div class="field-row">
+                  <div class="field-group">
+                    <label>First Name <span class="req">*</span></label>
+                    <input type="text" id="firstName" placeholder="e.g. Sarah">
+                  </div>
+                  <div class="field-group">
+                    <label>Last Name</label>
+                    <input type="text" id="lastName" placeholder="e.g. Thompson">
+                  </div>
+                </div>
+                <div class="field-group">
+                  <label>Phone <span class="req">*</span></label>
+                  <input type="tel" id="phone" placeholder="e.g. 07700 900123">
+                </div>
+                <div class="field-group">
+                  <label>Email <span class="req">*</span></label>
+                  <input type="email" id="email" placeholder="e.g. sarah@example.co.uk">
+                </div>
+                <div class="field-group">
+                  <label>Postcode <span class="req">*</span></label>
+                  <input type="text" id="postcode" placeholder="e.g. NR1 3JD">
+                </div>
+                <div class="btn-row">
+                  <button class="btn-back" onclick="goToStep(1)">Back</button>
+                  <button class="btn-submit" onclick="submitForm()">Get My Free Quote →</button>
+                </div>
+              </div>
+
+              <!-- SUCCESS -->
+              <div class="success-panel" id="success-panel">
+                <div class="success-icon">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <h2>You're All Set</h2>
+                <p>We've got your details and we'll be in touch within 24 hours — usually much sooner.<br>If it's urgent, give us a ring on <strong>07983 531860</strong>.</p>
+              </div>
+
+            </div>
+
+            <div class="security-note">
+              <svg viewBox="0 0 16 16"><path d="M8 1a4 4 0 0 0-4 4v2H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1h-1V5a4 4 0 0 0-4-4zm2.5 6h-5V5a2.5 2.5 0 0 1 5 0v2z"/></svg>
+              Your Details Are Secure And Never Shared
+            </div>
+
+          </div>
         </div>
 
       </div>
@@ -366,6 +522,78 @@
     </button>
   </div>
 
-  <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+  <script>
+    let currentStep = 1;
+    let selectedService = [];
+
+    function selectService(el) {
+      el.classList.toggle('selected');
+      selectedService = [...document.querySelectorAll('.service-option.selected')].map(o => o.dataset.service);
+    }
+
+    function goToStep(step) {
+      if (currentStep === 1 && step > 1 && (!selectedService || selectedService.length === 0)) {
+        const grid = document.getElementById('serviceGrid');
+        grid.style.outline = '2px solid #d96b6b';
+        grid.style.outlineOffset = '4px';
+        setTimeout(() => { grid.style.outline = 'none'; }, 800);
+        return;
+      }
+      currentStep = step;
+      document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('step-' + step).classList.add('active');
+      for (let i = 1; i <= 2; i++) {
+        document.getElementById('seg-' + i).classList.toggle('active', i <= step);
+        document.getElementById('label-' + i).classList.toggle('active', i <= step);
+      }
+    }
+
+    const WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/Axt4G21iCMs3IB0wkLjD/webhook-trigger/6cd5cc84-caa7-4c5a-827c-ec489fc4f23d';
+
+    async function submitForm() {
+      let valid = true;
+      ['firstName','phone','email','postcode'].forEach(id => {
+        const el = document.getElementById(id);
+        if (!el.value.trim()) { el.classList.add('error'); valid = false; }
+        else { el.classList.remove('error'); }
+      });
+      if (!valid) return;
+
+      const submitBtn = document.querySelector('.btn-submit');
+      submitBtn.textContent = 'Sending…';
+      submitBtn.disabled = true;
+      submitBtn.style.opacity = '0.6';
+
+      const formData = {
+        service: selectedService.join(', '),
+        firstName: document.getElementById('firstName').value.trim(),
+        lastName: document.getElementById('lastName').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        postcode: document.getElementById('postcode').value.trim()
+      };
+
+      try {
+        await fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+      } catch (err) {
+        console.error('Webhook error:', err);
+      }
+
+      document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('success-panel').classList.add('active');
+      for (let i = 1; i <= 2; i++) {
+        document.getElementById('seg-' + i).classList.add('active');
+        document.getElementById('label-' + i).classList.add('active');
+      }
+    }
+
+    document.querySelectorAll('.field-group input').forEach(input => {
+      input.addEventListener('input', () => input.classList.remove('error'));
+    });
+  </script>
 </body>
 </html>
