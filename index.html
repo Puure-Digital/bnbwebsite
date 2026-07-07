@@ -217,7 +217,7 @@
         <span class="hero__google-trust-label">10 Google Reviews</span>
       </a>
 
-      <h1 class="hero__h1 reveal reveal--delay-1">Decking &amp; Garden Rooms Norwich, Norfolk.</h1>
+      <h1 class="hero__h1 reveal reveal--delay-1">Decking &#38; Garden Rooms Norwich, Norfolk.</h1>
 
       <p class="hero__lead reveal reveal--delay-2">
         Composite decking, garden rooms, and bespoke outdoor structures
@@ -1001,6 +1001,12 @@
 
 
   <script src="/script.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var h1 = document.querySelector('.hero__h1') || document.querySelector('h1');
+      if (h1) h1.innerHTML = 'Decking & Garden Rooms<br><span style="display:block;color:#B8956A;font-style:italic;">Norwich, Norfolk.</span>';
+    });
+  </script>
   <script>
     (function () {
       var bar = document.getElementById('trustBar');
