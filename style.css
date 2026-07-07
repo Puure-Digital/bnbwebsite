@@ -630,6 +630,9 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-accent);
 }
 
+.hero__h1-line { display: block; }
+.hero__h1-loc { display: block; color: var(--color-accent); font-style: italic; }
+
 .hero__lead {
   font-size: var(--text-body-lg);
   line-height: 1.65;
