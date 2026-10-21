@@ -197,6 +197,10 @@ em { font-style: italic; }
   transition: background-color 400ms var(--ease-std), box-shadow 400ms var(--ease-std), transform 700ms var(--ease-out-expo);
 }
 .nav.is-hidden { transform: translateY(-100%); }
+/* sticky bands sit just under the nav; while it is away (site.js sets .nav-away) they move up
+   into its place, so nothing on the page shows through the gap it leaves */
+:root { --sticky-top: var(--nav-height); }
+html.nav-away { --sticky-top: 0px; }
 .nav.is-solid { background: var(--color-ink); box-shadow: 0 1px 0 var(--color-border-dark); }
 .nav__inner { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-8); height: var(--nav-height); }
 .nav__brand img { width: 150px; }
@@ -1414,7 +1418,7 @@ html.vt-lens::view-transition-old(root), html.vt-lens::view-transition-new(root)
   /* on narrow screens the counter rides along the top as a slim bar */
   .js .chronicle { grid-template-columns: minmax(0, 1fr); }
   .js .chronicle__aside {
-    top: var(--nav-height); z-index: 2; padding: var(--sp-4) 0;
+    top: var(--sticky-top); transition: top 700ms var(--ease-out-expo); z-index: 2; padding: var(--sp-4) 0;
     display: flex; align-items: baseline; gap: var(--sp-5);
     background: var(--color-surface); border-bottom: 1px solid var(--color-accent-dark);
   }
@@ -1816,7 +1820,7 @@ html:not(.js) .dusk__ai { display: none; }
   .reviews__side .reviews__controls { margin-top: 0; }
   .ranges__list { grid-template-columns: minmax(0, 1fr); gap: var(--sp-8); }
   .colours__preview {
-    position: sticky; top: var(--nav-height); z-index: 3;
+    position: sticky; top: var(--sticky-top); z-index: 3; transition: top 700ms var(--ease-out-expo);
     --plate: 96px;
     display: grid; grid-template-columns: var(--plate) minmax(0, 1fr); column-gap: var(--sp-5); align-items: center;
     padding-block: var(--sp-3); margin-inline: calc(-1 * var(--container-pad)); padding-inline: var(--container-pad);
@@ -1920,9 +1924,15 @@ html:not(.js) .dusk__ai { display: none; }
 .chronicle--home .chronicle__aside { display: none; }
 @media (max-width: 960px) {
   .js .chronicle--home .chronicle__aside {
-    display: flex; position: sticky; top: var(--nav-height); z-index: 2;
+    display: flex; position: sticky; top: var(--sticky-top); z-index: 2; transition: top 700ms var(--ease-out-expo);
     margin-top: var(--sp-8); background: var(--color-surface-2);
   }
+}
+/* the bands follow the nav without gliding when motion is reduced */
+@media (max-width: 960px) and (prefers-reduced-motion: reduce) {
+  .colours__preview, .js .chronicle__aside, .js .chronicle--home .chronicle__aside { transition: none; }
+}
+@media (max-width: 960px) {
   .js .chronicle--home .years__chapters { margin-top: 0; border-top: 0; }
   .js .chronicle--home .years__chapter { padding-block: var(--sp-6); }
   .js .chronicle--home .years__chapter-year { color: var(--color-muted); transition: color 400ms var(--ease-std); }
@@ -2163,7 +2173,6 @@ html:not(.js) .dusk__ai { display: none; }
 .hero__poster { width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; }
 .hero__canvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 600ms var(--ease-std); }
 .hero__beat { display: none; }
-.hero__note { display: none; }
 .hero__progress { display: none; }
 
 .hero--scrub.is-scrubbing { height: 350svh; }
@@ -2180,7 +2189,6 @@ html:not(.js) .dusk__ai { display: none; }
 }
 .hero--scrub.is-scrubbing .hero__media img { animation: none; }
 .hero--scrub.is-scrubbing .hero__beat { display: block; }
-.hero--scrub.is-scrubbing .hero__note { display: block; }
 .hero--scrub.is-scrubbing .hero__progress { display: block; }
 
 /* the two middle lines sit centred over the film, large and quiet */
@@ -2200,12 +2208,6 @@ html:not(.js) .dusk__ai { display: none; }
 .hero__beat--end .hero__actions { margin-top: var(--sp-8); }
 .hero--scrub .hero__content, .hero__beat--end { grid-column: 1; grid-row: 1; }
 .hero--scrub [data-beat-in], .hero--scrub [data-beat-out] { will-change: opacity, transform; }
-/* while the generated close-up plays, a small label says so; it leaves before the real deck */
-.hero__note {
-  position: absolute; top: calc(var(--nav-height) + var(--sp-4)); left: 0; right: 0; z-index: 1;
-  font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
-  color: rgb(240 237 232 / 0.72);
-}
 /* a brass rule laid along the foot while the frames arrive, gone once they have */
 .hero__progress {
   position: absolute; left: 0; right: 0; bottom: 0; height: 2px; z-index: 2;
@@ -2213,10 +2215,6 @@ html:not(.js) .dusk__ai { display: none; }
   transition: transform 300ms var(--ease-std), opacity 900ms var(--ease-std) 400ms;
 }
 .hero--scrub.is-loaded .hero__progress { opacity: 0; }
-/* no script, motion allowed: the still hero is the generated first frame, so it is labelled */
-@media (prefers-reduced-motion: no-preference) {
-  html:not(.js) .hero--scrub .hero__note { display: block; }
-}
 
 /* ---------- Belief as the film's closing title card (homepage) ----------
    The film ends and the screen stays dark; Darren's words light up one by one as they

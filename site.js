@@ -19,11 +19,15 @@
     if (y < window.innerHeight * 0.6 || busy || y < lastY - 6) nav.classList.remove('is-hidden');
     else if (y > lastY + 6) nav.classList.add('is-hidden');
     if (Math.abs(y - lastY) > 6) lastY = y;
+    navAway();
   }
+  /* sticky bands (the colour preview and the year counters on phones) sit under the nav and
+     move up into its place while it is away, so nothing shows through the gap it leaves */
+  function navAway() { document.documentElement.classList.toggle('nav-away', nav.classList.contains('is-hidden')); }
   if (nav) {
     updateNav();
     window.addEventListener('scroll', updateNav, { passive: true });
-    nav.addEventListener('focusin', function () { nav.classList.remove('is-hidden'); });
+    nav.addEventListener('focusin', function () { nav.classList.remove('is-hidden'); navAway(); });
   }
 
   /* ---------- Mobile menu ---------- */
