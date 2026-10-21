@@ -1504,10 +1504,14 @@ html:not(.js) .dusk__ai { display: none; }
   display: grid; grid-template-columns: minmax(0, 1fr);
   min-height: clamp(520px, 78svh, 860px);
 }
-.page-hero--dusk.is-scroll .dusk__stage { position: sticky; top: var(--stage-top, 0px); min-height: 100svh; }
+/* with script and motion the scroll layout is there from the first paint (a screen of photo plus
+   the hold), so nothing below jumps when site.js sets the exact height */
+@media (prefers-reduced-motion: no-preference) {
+  .js .page-hero--dusk { min-height: 220svh; }
+  .js .page-hero--dusk .dusk__stage { position: sticky; top: var(--stage-top, 0px); min-height: 100svh; }
+  .js .page-hero.page-hero--dusk .hero__media, .js .page-hero.page-hero--dusk .hero__content { animation: none; }
+}
 .js .page-hero--dusk .hero__media img { animation: none; }
-/* the page heroes' scroll-away (sink and lift) would run while this one is pinned */
-.js .page-hero--dusk.is-scroll .hero__media, .js .page-hero--dusk.is-scroll .hero__content { animation: none; }
 /* held at day until both night frames are decoded; site.js then sets each layer's opacity */
 .js .page-hero--dusk .dusk__dark, .js .page-hero--dusk .dusk__lit, .js .page-hero--dusk .dusk__ai { opacity: 0; }
 /* reduced motion: nothing pins; once the night frames are in, the night fades up */
@@ -2182,6 +2186,12 @@ html:not(.js) .dusk__ai { display: none; }
 .hero__poster { width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; }
 .hero__canvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 600ms var(--ease-std); }
 .hero__beat { display: none; }
+/* with script and motion the beats take their place from the first paint, unseen and out of
+   reach, so the opening words don't drop when the film starts and the closing beat appears */
+@media (prefers-reduced-motion: no-preference) {
+  .js .hero--scrub .hero__beat { display: block; visibility: hidden; }
+  .js .hero--scrub.is-scrubbing .hero__beat { visibility: visible; }
+}
 .hero__progress { display: none; }
 
 .hero--scrub.is-scrubbing { height: 350svh; }
